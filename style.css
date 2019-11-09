@@ -1,7 +1,6 @@
 
 body {
     height: 100vh;
-    display: flex;
     background: rgb(206, 237, 240);
   }
   .memory-game {

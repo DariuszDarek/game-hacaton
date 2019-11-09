@@ -15,14 +15,53 @@ function takeImagetoDIv(table) {
     tiles.forEach((element, index) => { //przypisuje elementy div do tablicy
         element.dataset.tile = table[index];
         element.onclick = function () { //
-
+           
             const tileNumbers = element.dataset.tile
-            element.style.backgroundImage = `url(tile_${tileNumbers}.png)`;
-        }
+         
+            
+          element.style.backgroundImage = `url(tile_${tileNumbers}.png)`;
+          
+            isItThisSome(element);}
+    
 
     }
     );
 }
-const pairs = preperPairs();
+function outMousee() {
 
+}
+const pairs = preperPairs();
 takeImagetoDIv(pairs);
+
+let first = null;
+let second = null;
+function isItThisSome(elem) {
+    if (first === null) {
+        first = elem
+
+    } else {
+        second = elem
+        if (first.dataset.tile === second.dataset.tile) {
+            console.log("para");
+
+             setTimeout(()=>{
+           first.style.backgroundImage = 'none';
+           second.style.backgroundImage = 'none';
+           first = null;
+            second = null;
+              },250  )
+        } else {
+           setTimeout(()=>{
+            first.style.backgroundImage = `url(question-mark.png)`;
+            second.style.backgroundImage = `url(question-mark.png)`;
+            first = null;
+            second = null;
+        
+        },250  )
+        } 
+        
+
+    }
+
+}
+
